@@ -28,3 +28,19 @@ s consists of parentheses only '()[]{}'.
 
 '''
 
+def valid(string):
+    valid = {']':'[','}':'{',')':'(' }
+    stack = []
+    for i in string:
+        if i in valid:
+            if stack and stack[-1] == valid[i]:
+                stack.pop()
+            else:
+                return False
+        else:
+            stack.append(i)
+    
+    if len(stack) == 0:
+        return True
+    else:
+        return False
