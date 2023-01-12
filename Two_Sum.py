@@ -44,4 +44,5 @@ def TwoSum(nums,target):
         diff = target - n
         if diff in numMap:
             return [numMap[diff],i]
+        numMap[n] = i
     return
