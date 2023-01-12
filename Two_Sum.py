@@ -38,3 +38,10 @@ Can you come up with an algorithm that is less than O(n2) time complexity?
 
 '''
 
+def TwoSum(nums,target):
+    numMap = {} # value:index
+    for i,n in enumerate(nums):
+        diff = target - n
+        if diff in numMap:
+            return [numMap[diff],i]
+    return
