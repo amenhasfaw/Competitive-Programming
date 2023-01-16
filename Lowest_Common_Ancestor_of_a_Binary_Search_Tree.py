@@ -27,3 +27,18 @@ p and q will exist in the BST.
 
 '''
 
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+def lowestCommonAncestor(root,p,q):
+    current = root
+    while current:
+        if current.val > q.val and current.val > p.val:
+            current = current.left
+        elif current.val < q.val and current.val < p.val:
+            current = current.right
+        else:
+            return current
