@@ -32,4 +32,11 @@ The number of nodes in the tree is in the range [0, 100].
 #         self.right = right
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if not root:
+            return None
         
+        root.right,root.left = root.left,root.right
+
+        self.invertTree(root.right)
+        self.invertTree(root.left)
+        return root
