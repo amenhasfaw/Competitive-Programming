@@ -30,3 +30,17 @@ s consists only of printable ASCII characters.
 
 '''
 
+def isValidPalindrome(s):
+    newStr = ""
+    for c in s:
+        if c.isalnum():
+            newStr += c.lower()
+
+    l,r = 0, len(newStr) - 1
+    while r>l:
+        if newStr[r] != newStr[l]:
+            return False
+        else:
+            l += 1
+            r -= 1
+    return True
