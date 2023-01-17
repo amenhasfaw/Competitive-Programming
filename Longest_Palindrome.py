@@ -24,4 +24,27 @@ s consists of lowercase and/or uppercase English letters only.
 '''
 
 def longestPalindrome(string):
+    SMap = {}
+    for i in SMap:
+        if i in SMap:
+            SMap[i] += 1
+        else:
+            SMap = 1
     
+    res = 0
+    odd = 0
+
+    for i in SMap.values():
+        if i > 1:
+            if i%2 == 0:
+                res += i
+            else:
+                res += i - 1
+                odd += 1
+        else:
+            odd += 1
+
+    if odd > 1:
+        res += 1
+
+    return res
