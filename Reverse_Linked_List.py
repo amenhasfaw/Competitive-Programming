@@ -25,6 +25,27 @@ The number of nodes in the list is the range [0, 5000].
 Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?
 
 '''
-
+#Iterative
 def reverseList(head):
-    pass
+    prev,curr = None,head
+
+    while curr:
+        nxt = curr.next
+        curr.next = prev
+        prev = curr
+        curr = nxt
+    return prev
+
+#Recursive
+def reverseList(head):
+    if not head:
+        return None
+
+    newHead = head
+
+    while head.next:
+        newHead = reverseList(head.next)
+        head.next.next = head
+    head.next = None
+
+    return newHead
