@@ -37,3 +37,11 @@ Follow up: Can you solve it using O(1) (i.e. constant) memory?
 #         self.val = x
 #         self.next = None
 
+def hasCycle(head):
+    slow,fast = head,head
+    while fast and fast.next:
+        fast = fast.next.next
+        slow = slow.next
+        if slow == fast:
+            return True
+    return False
