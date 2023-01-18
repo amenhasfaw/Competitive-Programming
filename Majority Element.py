@@ -28,3 +28,18 @@ Follow-up: Could you solve the problem in linear time and in O(1) space?
 
 '''
 
+def majorityElement(nums):
+    count = {}
+    max,res = 0,0
+
+    for i in nums:
+        if i in count:
+            count[i] += 1
+        else:
+            count[i] = 1
+
+    if count[i] > max:
+        max = count[i]
+        res = i
+
+    return res
