@@ -20,3 +20,22 @@ Each string does not contain leading zeros except for the zero itself.
 
 '''
 
+def addBinary(a,b):
+    res = ""
+    carry = 0
+
+    a,b = a[::-1],b[::-1]
+
+    for i in range(max(len(a),len(b))):
+        digitA = a[i] if i < len(a) else 0
+        digitB = b[i] if i < len(b) else 0
+
+        Total = digitA + digitB + carry
+        char = str(Total % 2)
+        res = char + res
+        carry = Total // 2
+
+    if carry:
+        res = "1" + res
+
+    return carry
