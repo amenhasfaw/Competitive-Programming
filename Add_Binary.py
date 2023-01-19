@@ -20,6 +20,7 @@ Each string does not contain leading zeros except for the zero itself.
 
 '''
 
+
 def addBinary(a,b):
     res = ""
     carry = 0
