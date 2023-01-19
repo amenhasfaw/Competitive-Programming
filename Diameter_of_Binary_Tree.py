@@ -19,6 +19,25 @@ The number of nodes in the tree is in the range [1, 104].
 -100 <= Node.val <= 100
 '''
 
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 
-def diameterofBinaryTree(a,b):
-    pass
+def diameterofBinaryTree(root):
+    diameter = [0]
+
+    def dfs(root):
+        if not root:
+            return -1
+        left = dfs(root.left)
+        right = dfs(root.right)
+        diameter[0] = max(diameter[0], 2+left+right)
+        height = 1 + max(left,right)
+
+        return height
+
+    dfs(root)
+    return diameter[0]
