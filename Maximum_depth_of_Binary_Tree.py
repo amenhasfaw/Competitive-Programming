@@ -25,4 +25,6 @@ The number of nodes in the tree is in the range [0, 104].
 #         self.right = right
 
 def maxDepth(root):
-    pass
+    if not root:
+        return 0
+    return 1 + max(maxDepth(root.right),maxDepth(root.left))
