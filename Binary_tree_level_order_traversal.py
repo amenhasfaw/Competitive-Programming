@@ -29,5 +29,23 @@ The number of nodes in the tree is in the range [0, 2000].
 #         self.left = left
 #         self.right = right
 
+import collections
+
+
 def levelOrder(root):
-    pass
+    res =[]
+    q =collections.deque()
+    q.append(root)
+
+    while q:
+        level = []
+        for i in range(len(q)):
+            node = q.popleft()
+            if node:
+                level.append(node.val)
+                q.append(node.left)
+                q.append(node.right)
+        if level:
+            res.append(level)
+    
+    return res
