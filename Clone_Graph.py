@@ -45,10 +45,25 @@ The Graph is connected and all nodes can be visited starting from the given node
 '''
 
 # Definition for a binary tree node.
-# class Node:
-#   def __init__(self, val = 0, neighbors = None):
-#     self.val = val
-#     self.neighbors = neighbors if neighbors is not None else []
+class Node:
+  def __init__(self, val = 0, neighbors = None):
+    self.val = val
+    self.neighbors = neighbors if neighbors is not None else []
 
 def cloneGraph(node):
-    pass
+    oldNewGraph = {} # old graph node : new graph node
+
+    def clone(node):
+        if node in oldNewGraph:
+            return oldNewGraph[node]
+        
+        copy = Node(node.val)
+        oldNewGraph[node] = copy
+
+        for i in node.neighbors:
+            copy.neighbors.append(clone(i))
+
+        return copy
+    
+    return clone(node) if node else None
+        
