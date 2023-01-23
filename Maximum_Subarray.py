@@ -26,4 +26,12 @@ Follow up: If you have figured out the O(n) solution, try coding another solutio
 
 '''
 
-
+def maxSubArray(nums):
+    maxSum = nums[0]
+    currSum = 0
+    for i in nums:
+        if currSum < 0:
+            currSum = 0
+        currSum += i
+        maxSum = max(maxSum,currSum)
+    return maxSum
