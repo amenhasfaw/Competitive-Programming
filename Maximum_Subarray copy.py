@@ -25,3 +25,6 @@ newInterval.length == 2
 
 '''
 
+
+def insert(interval,newInterval):
+    pass
