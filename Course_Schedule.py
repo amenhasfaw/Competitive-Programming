@@ -31,7 +31,7 @@ All the pairs prerequisites[i] are unique.
 
 def canfinish(numCourses,prerequisities):
     preMap = {i:[] for i in range(numCourses)}
-    for crs , pre in prerequisites:
+    for crs , pre in prerequisities:
         preMap[crs].append(pre)
         
         visited = set()
