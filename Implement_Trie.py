@@ -30,7 +30,6 @@ Constraints:
 1 <= word.length, prefix.length <= 2000
 word and prefix consist only of lowercase English letters.
 At most 3 * 104 calls in total will be made to insert, search, and startsWith.
-
 '''
 
 class Trie:
