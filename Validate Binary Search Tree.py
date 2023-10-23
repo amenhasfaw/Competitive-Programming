@@ -25,5 +25,14 @@ The number of nodes in the tree is in the range [1, 104].
 '''
 
 class Solution:
-    def productExceptSelf(self, nums):
-        pass
+    def isValidBST(self, root) -> bool:
+        def isValid(node,left,right):
+            if not node:
+                return True
+            if not(node.val < right and node.val > left):
+                return False
+
+            return (isValid(node.left,left,node.val) and
+                    isValid(node.right,node.val,right))
+
+        return isValid(root,float('-inf'),float('inf'))
