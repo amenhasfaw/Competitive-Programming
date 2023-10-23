@@ -23,4 +23,16 @@ Follow up: Can you solve the problem in O(1) extra space complexity? (The output
 
 class Solution:
     def productExceptSelf(self, nums):
-        pass
+        res = [1] * len(nums)
+
+        pre =1
+        for i in range(len(nums)):
+            res[i] =  pre
+            pre *= nums[i]
+        
+        pos = 1
+        for i in range(len(nums) - 1,-1,-1):
+            res[i] *= pos
+            pos *= nums[i]
+        
+        return res
