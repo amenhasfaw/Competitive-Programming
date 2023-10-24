@@ -32,8 +32,11 @@ n == grid[i].length
 grid[i][j] is 0, 1, or 2.
 '''
 
+from collections import deque
+
+
 class Solution:
-    def orangesRotting(self, grid: List[List[int]]) -> int:
+    def orangesRotting(self, grid) -> int:
         q = deque()
         fresh, time = 0, 0
         ROWS, COLS = len(grid), len(grid[0])
