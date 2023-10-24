@@ -30,6 +30,9 @@ n == grid[i].length
 grid[i][j] is '0' or '1'.
 '''
 
+import collections
+
+
 class Solution:
     def numIslands(self, grid) -> int:
         if not grid:
